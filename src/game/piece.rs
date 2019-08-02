@@ -8,8 +8,37 @@ pub struct Piece {
     indices: Vec<BlockIndex>,
 }
 
+impl Piece {
+    pub fn size(&self) -> BlockGridSize {
+        self.size
+    }
 
+    pub fn blocks<'a>(&'a self) -> impl iter::Iterator<Item = (BlockIndex, Block)> + 'a {
+        (&self.indices)
+            .iter()
+            .map(move |&index| (index, self.block))
+    }
 
+    fn transform(&self, mut transform: impl FnMut(BlockIndex) -> BlockIndex) -> Self {
+        Piece {
+            indices: self
+                .indices
+                .iter()
+                .map(|index| transform(*index))
+                .collect::<Vec<_>>(),
+            size: self.size,
+            block: self.block,
+        }
+    }
+
+    pub fn rotate_left(&self) -> Self {
+        self.transform(|index| BlockIndex::new(self.size().width - 1 - index.y, index.x))
+    }
+
+    pub fn rotate_right(&self) -> Self {
+        self.transform(|index| BlockIndex::new(index.y, self.size().height - 1 - index.x))
+    }
+}
 
 pub fn standards() -> Vec<Piece> {
     [
@@ -33,3 +62,4 @@ pub fn standards() -> Vec<Piece> {
         })
         .collect()
 }
+
