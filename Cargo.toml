@@ -1,8 +1,8 @@
 
 [package]
-name = "rust-awesome-puzzle-game-example"
+name = "Tetris"
 version = "0.1.0"
-authors = ["Yuu Shimizu <p@yuushimizu.com>"]
+authors = ["Hanyang Xiao <xhanyang@pdx.edu>"]
 edition = "2018"
 
 [dependencies]
