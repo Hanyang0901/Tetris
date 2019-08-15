@@ -1,17 +1,12 @@
-
 [package]
 name = "Tetris"
 version = "0.1.0"
-authors = ["Hanyang Xiao <xhanyang@pdx.edu>"]
+authors = ["Jianqiang <haojian@pdx.edu>, Hanyang Xiao <xhanyang@pdx.edu>"]
 edition = "2018"
 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [dependencies]
-piston_window = "0.99.0"
-piston2d-sprite = "0.55.0"
-euclid = "0.19.9"
-find_folder = "0.3.0"
-array2d = {git = "https://github.com/yuushimizu/array2d-rs"}
-euclid-ext = {git = "https://github.com/yuushimizu/euclid-ext"}
-rand = "0.7.0"
-uuid = "0.6.5"
-piston-ai_behavior = "0.31.0"
+enigo = "0.0.13"
+console="0.7.7"
+rand = "0.3.14"
